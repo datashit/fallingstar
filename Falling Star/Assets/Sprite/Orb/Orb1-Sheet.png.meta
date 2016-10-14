@@ -1,0 +1,283 @@
+fileFormatVersion: 2
+guid: f87e67694f24edd4bad8783df40d9e51
+timeCreated: 1475406223
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Orb1-Sheet_0
+    21300002: Orb1-Sheet_1
+    21300004: Orb1-Sheet_2
+    21300006: Orb1-Sheet_3
+    21300008: Orb1-Sheet_4
+    21300010: Orb1-Sheet_5
+    21300012: Orb1-Sheet_6
+    21300014: Orb1-Sheet_7
+    21300016: Orb1-Sheet_8
+    21300018: Orb1-Sheet_9
+    21300020: Orb1-Sheet_10
+    21300022: Orb1-Sheet_11
+    21300024: Orb1-Sheet_12
+    21300026: Orb1-Sheet_13
+    21300028: Orb1-Sheet_14
+    21300030: Orb1-Sheet_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 750
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orb1-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 2130
+        width: 674
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 2130
+        width: 674
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 2130
+        width: 674
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 2130
+        width: 673
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1426
+        width: 673
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 1426
+        width: 673
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 1426
+        width: 673
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 1426
+        width: 673
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 723
+        width: 673
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 723
+        width: 673
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 723
+        width: 673
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 723
+        width: 672
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 20
+        width: 672
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 20
+        width: 671
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 20
+        width: 671
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orb1-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 20
+        width: 673
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
