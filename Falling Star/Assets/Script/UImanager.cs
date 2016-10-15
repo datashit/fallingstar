@@ -21,6 +21,7 @@ public class UImanager : MonoBehaviour {
     {
         MainMenuPanel.active = false;
         PlayMenuPanel.active = true;
+        this.gameObject.GetComponent<GameManager>().PlayGame = true;
     }
     public void Click_Pause_Button()
     {
@@ -31,6 +32,7 @@ public class UImanager : MonoBehaviour {
     {
         LostMenuPanel.active = false;
         MainMenuPanel.active = true;
+        this.gameObject.GetComponent<GameManager>().PlayGame = false;
     }
 
     public void Click_MusicOnOff_Button()
