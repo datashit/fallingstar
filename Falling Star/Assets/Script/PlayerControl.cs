@@ -4,31 +4,33 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 
     public float speed = 3.5f;
-	// Use this for initialization
-	void Start () {
-	
-	}
+    private float rotate = 2.5f;
+    private Vector3 pos;
+    private GameManager gameManager;
+    private bool firstPosition = false;
+    // Use this for initialization
+    void Start () {
+        pos = this.transform.position;
+        gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-
-#if UNITY_EDITOR
-        if(Input.GetMouseButton(0))
+        if(!firstPosition &&  gameManager.PlayGame)
         {
-           Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;       
-            this.transform.position = Vector3.Lerp(this.transform.position, pos, Time.deltaTime * speed);
+            firstPosition = true;
+            pos.y = -0.5f;
         }
-#else
-            foreach (Touch parmak in Input.touches)
+
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && gameManager.PlayGame)
         {
-                Debug.Log("parmak aktif");
-                  Vector3 pos = Camera.main.ScreenToWorldPoint(parmak.position);
+            rotate *= -1;
+            pos = new Vector3(rotate, this.transform.position.y);
             pos.z = 0;
-            this.transform.position = Vector3.Lerp(this.transform.position, pos, Time.deltaTime * speed); 
+            pos.x = Mathf.Clamp(pos.x, -2.35f, 2.35f);
         }
-#endif
-
+        this.transform.position = Vector3.Lerp(this.transform.position, pos, Time.deltaTime * speed);
     }
 }
