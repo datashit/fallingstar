@@ -12,18 +12,25 @@ public class SpawnEnemy : MonoBehaviour {
         InvokeRepeating("Spawner", 1, 3.2f);
 
 
+        
+
+
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
         if (gameManager.PlayGame)
+        {
             this.transform.position = new Vector3(Random.Range(-3f, 3f), this.transform.position.y);
-
+        }
     }
+
     void Spawner()
     {
-     
-     if(gameManager.PlayGame)   
-        Instantiate(enemy[0], this.transform.position, Quaternion.identity);
+         if(gameManager.PlayGame)
+         {
+            Instantiate(enemy[0], this.transform.position, Quaternion.identity);
+         }
+        
     }
 }

@@ -6,6 +6,9 @@ public class UImanager : MonoBehaviour {
     public GameObject MainMenuPanel;
     public GameObject PlayMenuPanel;
     public GameObject LostMenuPanel;
+
+    public GameManager gameManager;
+
     public Sprite MusicOnSprite;
     public Sprite MusicOffSprite;
 
@@ -21,19 +24,30 @@ public class UImanager : MonoBehaviour {
     {
         MainMenuPanel.active = false;
         PlayMenuPanel.active = true;
-        this.gameObject.GetComponent<GameManager>().PlayGame = true;
+        gameManager.PlayGame = true;
     }
     public void Click_Pause_Button()
     {
+        gameManager.PlayGame = false;
         PlayMenuPanel.active = false;
         LostMenuPanel.active = true;
+        Time.timeScale = 0;       
     }
+
     public void Click_MainMenu_Button()
+    {
+        Load_MainMenu();
+        gameManager.Reload_Game();
+    }
+
+    public void Load_MainMenu()
     {
         LostMenuPanel.active = false;
         MainMenuPanel.active = true;
-        this.gameObject.GetComponent<GameManager>().PlayGame = false;
+        gameManager.PlayGame = false;
     }
+
+
 
     public void Click_MusicOnOff_Button()
     {
