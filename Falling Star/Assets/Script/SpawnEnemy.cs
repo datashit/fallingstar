@@ -5,6 +5,7 @@ public class SpawnEnemy : MonoBehaviour {
 
     public GameObject[] enemy;
     private GameManager gameManager;
+    private int spawnShip;
     // Use this for initialization
 	void Start () {
 
@@ -22,6 +23,7 @@ public class SpawnEnemy : MonoBehaviour {
         if (gameManager.PlayGame)
         {
             this.transform.position = new Vector3(Random.Range(-3f, 3f), this.transform.position.y);
+            spawnShip =  Random.Range(0, enemy.Length);
         }
     }
 
@@ -29,7 +31,7 @@ public class SpawnEnemy : MonoBehaviour {
     {
          if(gameManager.PlayGame)
          {
-            Instantiate(enemy[0], this.transform.position, Quaternion.identity);
+            Instantiate(enemy[spawnShip], this.transform.position, Quaternion.identity);
          }
         
     }

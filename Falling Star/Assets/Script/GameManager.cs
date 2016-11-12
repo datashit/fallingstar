@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
         PlayGame = false;
         Time.timeScale = 1;
         GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
+        GameObject.Find("Player").GetComponent<PlayerControl>().Default();
         GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemy in EnemyList)
         {

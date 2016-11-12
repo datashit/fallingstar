@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class PlayerControl : MonoBehaviour
     private float rotate = 2.5f;
     private Vector3 pos;
     private GameManager gameManager;
-    
+    private uint OrbPoint = 0;
+    public GameObject OrbScoreText;
+
     private bool firstPosition = false;
     // Use this for initialization
     void Start()
@@ -30,7 +33,7 @@ public class PlayerControl : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && this.transform.position.y > -0.51f)
             {
                 rotate *= -1;
                 pos = new Vector3(rotate, pos.y);
@@ -45,14 +48,46 @@ public class PlayerControl : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        switch (collision.gameObject.tag)
         {
-            LostGame();
+            case ("Enemy"):
+                LostGame();
+                break;
+
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case ("Orb"):
+                OrbTrigger(collision.gameObject);
+                break;
+        }
+    }
+
+    private  void OrbTrigger(GameObject obj)
+    {
+        Destroy(obj);
+        OrbPoint++;
+        SetScoreText(OrbPoint);
+        Debug.Log(OrbPoint);
+        
+        
+    }
+    private void SetScoreText(uint Score)
+    {
+        OrbScoreText.GetComponent<Text>().text = string.Format("Orb: {0}", Score);
+    }
+
+    public void Default()
+    {
+        pos.x = 0;
+    }
     private void LostGame()
     {
         gameManager.Reload_Game();
+        Default();
     }
 }

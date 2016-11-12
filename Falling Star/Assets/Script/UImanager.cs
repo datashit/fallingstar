@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UImanager : MonoBehaviour {
+public class UImanager : MonoBehaviour
+{
     public GameObject MainMenuPanel;
     public GameObject PlayMenuPanel;
     public GameObject LostMenuPanel;
@@ -11,6 +12,14 @@ public class UImanager : MonoBehaviour {
 
     public Sprite MusicOnSprite;
     public Sprite MusicOffSprite;
+
+    public void LateUpdate()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Click_Pause_Button();
+        }
+    }
 
     enum MusicOnOf
     {
@@ -28,10 +37,13 @@ public class UImanager : MonoBehaviour {
     }
     public void Click_Pause_Button()
     {
-        gameManager.PlayGame = false;
-        PlayMenuPanel.active = false;
-        LostMenuPanel.active = true;
-        Time.timeScale = 0;       
+        if(gameManager.PlayGame)
+        {
+            gameManager.PlayGame = false;
+            PlayMenuPanel.active = false;
+            LostMenuPanel.active = true;
+            Time.timeScale = 0;
+        }
     }
 
     public void Click_MainMenu_Button()
@@ -43,6 +55,7 @@ public class UImanager : MonoBehaviour {
     public void Load_MainMenu()
     {
         LostMenuPanel.active = false;
+        PlayMenuPanel.active = false;
         MainMenuPanel.active = true;
         gameManager.PlayGame = false;
     }
@@ -52,7 +65,7 @@ public class UImanager : MonoBehaviour {
     public void Click_MusicOnOff_Button()
     {
         GameObject MusicOnOffButton = GameObject.Find("MusicOnOffButton");
-        switch(musicStatus)
+        switch (musicStatus)
         {
             case MusicOnOf.ON:
                 musicStatus = MusicOnOf.OFF;
