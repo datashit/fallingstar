@@ -31,8 +31,9 @@ public class UImanager : MonoBehaviour
 
     public void Click_Play_Button()
     {
-        MainMenuPanel.active = false;
-        PlayMenuPanel.active = true;
+
+        MainMenuPanel.SetActive(false);
+        PlayMenuPanel.SetActive(true);
         gameManager.PlayGame = true;
     }
     public void Click_Pause_Button()
@@ -40,8 +41,8 @@ public class UImanager : MonoBehaviour
         if(gameManager.PlayGame)
         {
             gameManager.PlayGame = false;
-            PlayMenuPanel.active = false;
-            LostMenuPanel.active = true;
+            PlayMenuPanel.SetActive(false);
+            LostMenuPanel.SetActive(true);
             Time.timeScale = 0;
         }
     }
@@ -54,9 +55,9 @@ public class UImanager : MonoBehaviour
 
     public void Load_MainMenu()
     {
-        LostMenuPanel.active = false;
-        PlayMenuPanel.active = false;
-        MainMenuPanel.active = true;
+        LostMenuPanel.SetActive(false);
+        PlayMenuPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
         gameManager.PlayGame = false;
     }
 

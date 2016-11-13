@@ -2,17 +2,29 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : BaseBehaviour
 {
 
     public float speed = 3.5f;
     private float rotate = 2.5f;
     private Vector3 pos;
     private GameManager gameManager;
-    private uint OrbPoint = 0;
-    public GameObject OrbScoreText;
+    private uint OrbPointCounter = 0;
+    private int OrbPoint;
 
     private bool firstPosition = false;
+
+    public enum PlayerInfo
+    {
+        ORB_SCORE_CHANGE,
+        TOTAL_ORB_SCORE_CHANGE
+    }
+
+    public void Awake()
+    {
+        OrbPoint = PlayerPrefs.GetInt("OrbPoint", 0);
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -67,18 +79,18 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private  void OrbTrigger(GameObject obj)
+    private void OrbTrigger(GameObject obj)
     {
         Destroy(obj);
-        OrbPoint++;
-        SetScoreText(OrbPoint);
-        Debug.Log(OrbPoint);
-        
-        
+        OrbPointCounter++;
+        SetScoreText(OrbPointCounter);
+        Debug.Log(OrbPointCounter);
+
+
     }
     private void SetScoreText(uint Score)
     {
-        OrbScoreText.GetComponent<Text>().text = string.Format("Orb: {0}", Score);
+        Observer.SendMessage(PlayerInfo.ORB_SCORE_CHANGE, Score);
     }
 
     public void Default()
@@ -89,5 +101,15 @@ public class PlayerControl : MonoBehaviour
     {
         gameManager.Reload_Game();
         Default();
+        UpdateOrbPoint();
+    }
+
+    private void UpdateOrbPoint()
+    {
+        OrbPoint += (int)OrbPointCounter;
+        PlayerPrefs.SetInt("OrbPoint", OrbPoint);
+        Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
+        OrbPointCounter = 0;
+        SetScoreText(OrbPointCounter);
     }
 }
