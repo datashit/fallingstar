@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
         GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
         GameObject.Find("Player").GetComponent<PlayerControl>().Default();
         GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject.FindGameObjectsWithTag("Orb").CopyTo(EnemyList, EnemyList.Length);
         foreach (var enemy in EnemyList)
         {
             Destroy(enemy);

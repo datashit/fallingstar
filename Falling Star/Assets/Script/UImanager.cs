@@ -7,6 +7,7 @@ public class UImanager : MonoBehaviour
     public GameObject MainMenuPanel;
     public GameObject PlayMenuPanel;
     public GameObject LostMenuPanel;
+    public GameObject OrbStorePanel;
 
     public GameManager gameManager;
 
@@ -28,6 +29,12 @@ public class UImanager : MonoBehaviour
     };
 
     private MusicOnOf musicStatus = MusicOnOf.ON;
+
+    public void Click_Orb_Shop()
+    {
+        MainMenuPanel.SetActive(false);
+        OrbStorePanel.SetActive(true);
+    }
 
     public void Click_Play_Button()
     {
@@ -57,6 +64,7 @@ public class UImanager : MonoBehaviour
     {
         LostMenuPanel.SetActive(false);
         PlayMenuPanel.SetActive(false);
+        OrbStorePanel.SetActive(false);
         MainMenuPanel.SetActive(true);
         gameManager.PlayGame = false;
     }
