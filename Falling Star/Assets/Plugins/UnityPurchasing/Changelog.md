@@ -1,3 +1,33 @@
+## [1.9.1] - 2016-11-17
+### Added
+- [Beta] Codeless IAP — UI fields show title, price, and description downloaded from the platform store
+
+### Fixed
+- IAPButton component now updates product ID list as the IAP Catalog is being edited
+- IAP Catalog now includes a store ID field for the Cloud Moolah store
+- Fixed a problem with opening a project containing the Unity IAP plugin while IAP was disabled in the Services window
+- IAPButton inspector field for Product ID now works correctly with Undo
+- Set GooglePlay as default Android store AAR fileset. Excludes other store's assets (Java, resource XML, localization), saving ~196kb in default APK. Creates Assets/Plugins/UnityPurchasing/Resources/BillingMode.json in Project. Configure manually with Window > Unity IAP > Android menu, or UnityPurchasingEditor.TargetAndroidStore(AndroidStore).
+- CloudMoolah - update Window > Unity IAP > Android menu checkmarks when CloudMoolah selected
+
+## [1.9.0] - 2016-10-31
+### Added
+- CloudMoolah support. CloudMoolah website [here](http://www.cloudmoolah.com). Preliminary store guide available [here](https://docs.google.com/document/d/1T9CEZe6eNCwgWkq7lLwrEw7rpSbu3_EjcUVgJJL6xA0/edit). Preliminary configuration document available [here](https://docs.google.com/document/d/1dpc3zqsyROeFUVBy9W9pc0sskCPyfhcRnsGxtyITmyQ/edit).
+- [Beta] Codeless IAP tools. Implement IAP by adding IAP Buttons to your project (Window > Unity IAP > Create IAP Button) and configure your catalog of IAP products without writing a line of code (Window > Unity IAP > IAP Catalog). Preliminary documentation is available [here](https://docs.google.com/document/d/1597oxEI1UkZ1164j1lR7s-2YIrJyidbrfNwTfSI1Ksc/edit).
+- [Beta] Google Play - Support for Daydream VR. Requires Unity 5.4+ "GVR" Technical Preview, enabling VR, and including the Daydream SDK. Additional details [here](https://unity3d.com/partners/google/daydream).
+- Samsung Galaxy Store - Added support for receiving auto-recurring subscriptions
+- Highlights chosen Android store in menu Window > Unity IAP > Android
+
+### Fixed
+- Remove the menu item to select Android store at runtime
+- Fix an exception that occurred when parsing prices while culture was set to use commas as a decimal separator
+
+## [1.8.3] - 2016-10-13
+### Fixed
+- iOS crash when calling PurchasingManager.ConfirmPendingPurchase with a product that does not have a transaction ID
+- Ensure tvOS build uses correct stub DLL
+- Support transaction receipt logging for all store platforms. Requires corresponding Unity Engine: currently unreleased Unity 5.3/5.4 patch, or Unity 5.5.0b7+.
+
 ## [1.8.2] - 2016-09-23
 ### Fixed
 - Tizen Store - Product list not delivered to new app or new user

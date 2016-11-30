@@ -99,17 +99,27 @@ public class PlayerControl : BaseBehaviour
     }
     private void LostGame()
     {
+        UpdateOrbPoint();
         gameManager.Reload_Game();
         Default();
-        UpdateOrbPoint();
+        
     }
 
     private void UpdateOrbPoint()
     {
-        OrbPoint += (int)OrbPointCounter;
-        PlayerPrefs.SetInt("OrbPoint", OrbPoint);
-        Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
+        UpdateTotalOrbPoint((int)OrbPointCounter);
+        //OrbPoint += (int)OrbPointCounter;
+        //PlayerPrefs.SetInt("OrbPoint", OrbPoint);
+        //Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
         OrbPointCounter = 0;
         SetScoreText(OrbPointCounter);
+    }
+
+    public void UpdateTotalOrbPoint(int point)
+    {
+        OrbPoint += point;
+        PlayerPrefs.SetInt("OrbPoint", OrbPoint);
+        Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
+      
     }
 }

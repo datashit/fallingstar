@@ -22,14 +22,19 @@ public class GameManager : MonoBehaviour {
     {
         uiManager.Load_MainMenu();
         PlayGame = false;
-        Time.timeScale = 1;
+        
         GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
         GameObject.Find("Player").GetComponent<PlayerControl>().Default();
         GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject.FindGameObjectsWithTag("Orb").CopyTo(EnemyList, EnemyList.Length);
+        GameObject[] OrbList = GameObject.FindGameObjectsWithTag("Orb");
+        foreach(var orb in OrbList)
+        {
+            Destroy(orb);
+        }
         foreach (var enemy in EnemyList)
         {
             Destroy(enemy);
         }
+        Time.timeScale = 1;
     }
 }
