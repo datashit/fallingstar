@@ -9,21 +9,10 @@ public class PlayerControl : BaseBehaviour
     private float rotate = 2.5f;
     private Vector3 pos;
     private GameManager gameManager;
-    private uint OrbPointCounter = 0;
-    private int OrbPoint;
+
 
     private bool firstPosition = false;
 
-    public enum PlayerInfo
-    {
-        ORB_SCORE_CHANGE,
-        TOTAL_ORB_SCORE_CHANGE
-    }
-
-    public void Awake()
-    {
-        OrbPoint = PlayerPrefs.GetInt("OrbPoint", 0);
-    }
 
     // Use this for initialization
     void Start()
@@ -82,16 +71,9 @@ public class PlayerControl : BaseBehaviour
     private void OrbTrigger(GameObject obj)
     {
         Destroy(obj);
-        OrbPointCounter++;
-        SetScoreText(OrbPointCounter);
-        Debug.Log(OrbPointCounter);
-
-
+        OrbManager.Instance.AddOrb(1);
     }
-    private void SetScoreText(uint Score)
-    {
-        Observer.SendMessage(PlayerInfo.ORB_SCORE_CHANGE, Score);
-    }
+
 
     public void Default()
     {
@@ -107,19 +89,7 @@ public class PlayerControl : BaseBehaviour
 
     private void UpdateOrbPoint()
     {
-        UpdateTotalOrbPoint((int)OrbPointCounter);
-        //OrbPoint += (int)OrbPointCounter;
-        //PlayerPrefs.SetInt("OrbPoint", OrbPoint);
-        //Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
-        OrbPointCounter = 0;
-        SetScoreText(OrbPointCounter);
+        OrbManager.Instance.UpdateTotalOrb();
     }
 
-    public void UpdateTotalOrbPoint(int point)
-    {
-        OrbPoint += point;
-        PlayerPrefs.SetInt("OrbPoint", OrbPoint);
-        Observer.SendMessage(PlayerInfo.TOTAL_ORB_SCORE_CHANGE, OrbPoint);
-      
-    }
 }

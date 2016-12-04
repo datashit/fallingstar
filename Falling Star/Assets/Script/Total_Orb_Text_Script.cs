@@ -6,8 +6,8 @@ public class Total_Orb_Text_Script : BaseBehaviour
 {
     public void Awake()
     {
-        Observer.AddListener(PlayerControl.PlayerInfo.TOTAL_ORB_SCORE_CHANGE, this, UpdateText_Observer);
-        UpdateText(PlayerPrefs.GetInt("OrbPoint",0));
+        Observer.AddListener(OrbManager.OrbManagerInfo.TOTAL_ORB_CHANGE, this, UpdateText_Observer);
+        UpdateText(OrbManager.Instance.getTotalOrb);
     }
 
 

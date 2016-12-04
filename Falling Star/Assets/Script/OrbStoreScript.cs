@@ -8,4 +8,9 @@ public class OrbStoreScript : MonoBehaviour {
     {
             GameObject.Find("Main Camera").GetComponent<GameManager>().Reload_Game();      
     }
+
+    public void AddTotalOrb(int value)
+    {
+        OrbManager.Instance.AddTotalOrb(value);
+    }
 }

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using UnityEditor;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using NSubstitute;
+using UnityEngine;
 
 [TestFixture]
 public class OrbManagerTest {
@@ -8,56 +8,74 @@ public class OrbManagerTest {
     [TestFixtureSetUp]
     public void Init()
     {
-        Debug.Log("Init");
-
-
+        orbManager = ob.AddComponent<OrbManager>();
+        PlayerPrefs.SetInt("OrbPoint", 0);
 
     }
 
+    GameObject ob = new GameObject("OrbManagerObject");
+    OrbManager orbManager;
+   
 
     [Test]
-	public void EditorTest()
-	{
-		//Arrange
-		var gameObject = new GameObject();
+    public void Toplam_Orb_Skoru_Ekle([NUnit.Framework.Range(0, 20)] int Orb)
+    {
+             
+        int expected = orbManager.getTotalOrb + Orb;
 
-		//Act
-		//Try to rename the GameObject
-		var newGameObjectName = "My game object";
-		gameObject.name = newGameObjectName;
+        int result = orbManager.AddTotalOrb(Orb);
 
-		//Assert
-		//The object has a new name
-		Assert.AreEqual(newGameObjectName, gameObject.name);
-	}
+        Assert.AreEqual(expected, result);
+        Assert.AreEqual(result, orbManager.getTotalOrb);
+    }
 
     [Test]
-    public void Toplam_Orb_Skoru_Güncelle()
+    public void Toplam_Orb_Harca([NUnit.Framework.Range(1,20)] int SpendOrb)
     {
 
-    
+        orbManager.AddTotalOrb(SpendOrb);
+        int expected = orbManager.getTotalOrb - SpendOrb;
 
-        Assert.AreEqual(20, 20);
+        bool result = orbManager.SpendTotalOrb(SpendOrb);
+
+        Assert.IsTrue(result);
+        Assert.AreEqual(expected, orbManager.getTotalOrb);
     }
 
-    //[Test]
-    //public void Orb_Manager_Nesnesi_Tek_Olmali()
-    //{
-        
+    [Test]
+    public void Toplam_Orb_Harcandıgında_Negatif_Olmamali([NUnit.Framework.Range(1, 20)] int SpendOrb)
+    {
+
+        PlayerPrefs.SetInt("OrbPoint", 0);
        
-        
-    //    OrbManager manager = OrbManager.Instance;
 
+        bool result = orbManager.SpendTotalOrb(SpendOrb);
 
-        
-    //    Assert.AreSame(manager, OrbManager.Instance);
-    //}
+        Assert.IsFalse(result);
+        Assert.AreEqual(0, orbManager.getTotalOrb);
+    }
 
     [Test]
-    public void Orb_Manager_Null_Olmamali()
+    public void Orb_Ekle()
     {
-        OrbManager manager = OrbManager.Instance;
+        int orbScore = 1;
+        int expected = orbManager.getOrb + orbScore;
 
-        Assert.IsNull(manager);
+        int result = orbManager.AddOrb(orbScore);
+
+        Assert.AreEqual(expected, result);
     }
+
+    [Test]
+    public void Toplam_Orb_Sayısını_Güncelle()
+    {
+        int orbScore = 20;       
+        orbManager.AddOrb(orbScore);
+        int expected = orbManager.getTotalOrb + orbManager.getOrb;
+
+        orbManager.UpdateTotalOrb();
+
+        Assert.AreEqual(expected, orbManager.getTotalOrb);
+    }
+
 }
