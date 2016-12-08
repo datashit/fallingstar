@@ -9,6 +9,8 @@ public class UImanager : MonoBehaviour
     public GameObject LostMenuPanel;
     public GameObject OrbStorePanel;
 
+    public MMAnimationScript mmAnimationScript;
+
     public GameManager gameManager;
 
     public Sprite MusicOnSprite;
@@ -71,11 +73,8 @@ public class UImanager : MonoBehaviour
     public void Load_MainMenu()
     {
         ChangeUI(MainMenuPanel);
-        //LostMenuPanel.SetActive(false);
-        //PlayMenuPanel.SetActive(false);
-        //OrbStorePanel.SetActive(false);
-        //MainMenuPanel.SetActive(true);
         gameManager.PlayGame = false;
+        mmAnimationScript.Back_MM_Animation();
     }
 
 
