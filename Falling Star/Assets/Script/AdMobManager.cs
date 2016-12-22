@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
-using GoogleMobileAds.Api;
+using Heyzap;
+
 
 public class AdMobManager : MonoBehaviour
 {
 
-#if UNITY_EDITOR
-    const string banneradUnitId = "unused";
-    const string interstitialadUnitId = "unused";
-#elif UNITY_ANDROID
-    const  string banneradUnitId = "ca-app-pub-9156853720163935/4918674802";
-    const  string interstitialadUnitId = "ca-app-pub-9156853720163935/7872141208";
-#elif UNITY_IPHONE
-    const  string banneradUnitId = "INSERT_IOS_BANNER_AD_UNIT_ID_HERE";
-    const  string interstitialadUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
-#else
-    const  string banneradUnitId = "unexpected_platform";
-    const  string interstitialadUnitId = "unexpected_platform";
-#endif
+
     private static AdMobManager instance = null;
 
     public void Awake()
@@ -32,50 +21,182 @@ public class AdMobManager : MonoBehaviour
         DontDestroyOnLoad(instance);
     }
 
-    BannerView bannerView;
-    InterstitialAd interstitial;
     public void Start()
     {
-        bannerView = new BannerView(banneradUnitId, AdSize.Banner, AdPosition.Bottom);
-        interstitial = new InterstitialAd(interstitialadUnitId);
-        RequestBanner();
-        RequestInterstitial();
+        HeyzapAds.Start("e522389493816fef4d0603100a27698b", HeyzapAds.FLAG_NO_OPTIONS);
+
+
+        /// Reward
+        HZIncentivizedAd.AdDisplayListener listener = delegate (string adState, string adTag) {
+            if (adState.Equals("incentivized_result_complete"))
+            {
+                Debug.Log("150 Orb Kazanıldı!");
+                // The user has watched the entire video and should be given a reward.
+            }
+            if (adState.Equals("incentivized_result_incomplete"))
+            {
+                Debug.Log("Kazanılamadı!");
+                // The user did not watch the entire video and should not be given a   reward.
+            }
+        };
+
+        HZIncentivizedAd.SetDisplayListener(listener);
+
+        HZBannerAd.AdDisplayListener listenerBanner = delegate (string adState, string adTag) {
+            if (adState == "loaded")
+            {
+                Debug.Log("Banner Yüklendi!");
+                // Do something when the banner ad is loaded
+            }
+            if (adState == "error")
+            {
+                Debug.Log("Banner hatası!");
+                // Do something when the banner ad fails to load (they can fail when refreshing after successfully loading)
+            }
+            if (adState == "click")
+            {
+                Debug.Log("Banner Tıklandı!");
+                // Do something when the banner ad is clicked, like pause your game
+            }
+        };
+
+        HZBannerAd.SetDisplayListener(listenerBanner);
+
+        HZInterstitialAd.AdDisplayListener listenerInst = delegate (string adState, string adTag) {
+            if (adState.Equals("show"))
+            {
+                Debug.Log("Inst Göster!");
+                // Sent when an ad has been displayed.
+                // This is a good place to pause your app, if applicable.
+            }
+            if (adState.Equals("hide"))
+            {
+                Debug.Log("Inst Gizle!");
+                // Sent when an ad has been removed from view.
+                // This is a good place to unpause your app, if applicable.
+            }
+            if (adState.Equals("failed"))
+            {
+                Debug.Log("Inst Hata!");
+                // Sent when you call `show`, but there isn't an ad to be shown.
+                // Some of the possible reasons for show errors:
+                //    - `HeyzapAds.PauseExpensiveWork()` was called, which pauses 
+                //      expensive operations like SDK initializations and ad
+                //      fetches, andand `HeyzapAds.ResumeExpensiveWork()` has not
+                //      yet been called
+                //    - The given ad tag is disabled (see your app's Publisher
+                //      Settings dashboard)
+                //    - An ad is already showing
+                //    - A recent IAP is blocking ads from being shown (see your
+                //      app's Publisher Settings dashboard)
+                //    - One or more of the segments the user falls into are
+                //      preventing an ad from being shown (see your Segmentation
+                //      Settings dashboard)
+                //    - Incentivized ad rate limiting (see your app's Publisher
+                //      Settings dashboard)
+                //    - One of the mediated SDKs reported it had an ad to show
+                //      but did not display one when asked (a rare case)
+                //    - The SDK is waiting for a network request to return before an
+                //      ad can show
+            }
+            if (adState.Equals("available"))
+            {
+                Debug.Log("Inst Yüklü!");
+                // Sent when an ad has been loaded and is ready to be displayed,
+                //   either because we autofetched an ad or because you called
+                //   `Fetch`.
+            }
+            if (adState.Equals("fetch_failed"))
+            {
+                Debug.Log("Inst Fetch Fail!");
+                // Sent when an ad has failed to load.
+                // This is sent with when we try to autofetch an ad and fail, and also
+                //    as a response to calls you make to `Fetch` that fail.
+                // Some of the possible reasons for fetch failures:
+                //    - Incentivized ad rate limiting (see your app's Publisher
+                //      Settings dashboard)
+                //    - None of the available ad networks had any fill
+                //    - Network connectivity
+                //    - The given ad tag is disabled (see your app's Publisher
+                //      Settings dashboard)
+                //    - One or more of the segments the user falls into are
+                //      preventing an ad from being fetched (see your
+                //      Segmentation Settings dashboard)
+            }
+            if (adState.Equals("audio_starting"))
+            {
+                Debug.Log("Inst ses kapa!");
+                // The ad about to be shown will need audio.
+                // Mute any background music.
+            }
+            if (adState.Equals("audio_finished"))
+            {
+                Debug.Log("Inst ses aç!");
+                // The ad being shown no longer needs audio.
+                // Any background music can be resumed.
+            }
+        };
+
+        HZInterstitialAd.SetDisplayListener(listenerInst);
+
+        ShowBanner();
+
     }
+
+
 
     public static AdMobManager Instance
     {
         get { return instance; }
     }
 
-    public void ShowBanner()
+    public void ShowRewardBasedVideoAd()
     {
-        bannerView.Show();
+        if(HZIncentivizedAd.IsAvailable())
+        {
+            HZIncentivizedAd.Show();
+        }
     }
 
     public void ShowInterstitial()
     {
-        if (interstitial.IsLoaded())
+        if(HZInterstitialAd.IsAvailable())
         {
-            interstitial.Show();
+            HZInterstitialAd.Show();
         }
     }
 
-    private AdRequest newAdRequest()
+    public void RequestRewardAd()
     {
-        return new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).Build();
+        if(!HZIncentivizedAd.IsAvailable())
+        {
+            HZIncentivizedAd.Fetch();
+        }
     }
 
-    private void RequestBanner()
+    public void ShowBanner()
     {
+        HZBannerShowOptions showOptions = new HZBannerShowOptions();
+        showOptions.Position = HZBannerShowOptions.POSITION_BOTTOM;
+        showOptions.SelectedAdMobSize = HZBannerShowOptions.AdMobSize.SMART_BANNER; // optional, android only
+        showOptions.SelectedFacebookSize = HZBannerShowOptions.FacebookSize.SMART_BANNER; // optional, android only
+        showOptions.SelectedInmobiSize = HZBannerShowOptions.InmobiSize.BANNER_320_50;
+        
+        HZBannerAd.ShowWithOptions(showOptions);
         // Load the banner with the request.
-        bannerView.LoadAd(newAdRequest());
+        //bannerView.LoadAd(newAdRequest());
     }
 
-    
+    public void HideBanner()
+    {
+        HZBannerAd.Hide();
+    }   
  
     public void RequestInterstitial()
     {   
-        // Load the interstitial with the request.
-        interstitial.LoadAd(newAdRequest());
+        if(!HZInterstitialAd.IsAvailable())
+        {
+            HZInterstitialAd.Fetch();
+        }
     }
 }
