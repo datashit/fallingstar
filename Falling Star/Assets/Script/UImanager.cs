@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.Script;
 
 public class UImanager : MonoBehaviour
 {
@@ -18,9 +19,21 @@ public class UImanager : MonoBehaviour
 
     private GameObject ActiveUIobject;
 
+    public enum PageEnum
+    {
+        MainMenu,
+        PlayGame,
+        PauseGame,
+        LostGame,
+        Market,
+        OrbShop
+    }
+    PageEnum activePage;
     public void Start()
     {
+        
         ActiveUIobject = MainMenuPanel;
+        activePage = PageEnum.MainMenu;
     }
     public void LateUpdate()
     {
@@ -43,14 +56,21 @@ public class UImanager : MonoBehaviour
         //MainMenuPanel.SetActive(false);
         //OrbStorePanel.SetActive(true);
         ChangeUI(OrbStorePanel);
+        activePage = PageEnum.OrbShop;
+        AdManager.Instance.HideBanner();
+        
     }
 
     public void Click_Play_Button()
     {
         ChangeUI(PlayMenuPanel);
+        activePage = PageEnum.PlayGame;
         //MainMenuPanel.SetActive(false);
         //PlayMenuPanel.SetActive(true);
         gameManager.PlayGame = true;
+        AdManager.Instance.ShowBanner();
+        GameProperties.IncGamePlayCount();
+        
     }
     public void Click_Pause_Button()
     {
@@ -61,6 +81,7 @@ public class UImanager : MonoBehaviour
             //PlayMenuPanel.SetActive(false);
             //LostMenuPanel.SetActive(true);
             Time.timeScale = 0;
+            activePage = PageEnum.PauseGame;
         }
     }
 
@@ -68,6 +89,7 @@ public class UImanager : MonoBehaviour
     {
         Load_MainMenu();
         gameManager.Reload_Game();
+
     }
 
     public void Load_MainMenu()
@@ -75,6 +97,9 @@ public class UImanager : MonoBehaviour
         ChangeUI(MainMenuPanel);
         gameManager.PlayGame = false;
         mmAnimationScript.Back_MM_Animation();
+        activePage = PageEnum.MainMenu;
+        AdManager.Instance.HideBanner();
+        
     }
 
 

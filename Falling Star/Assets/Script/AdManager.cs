@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using Heyzap;
+using Assets.Script;
 
-
-public class AdMobManager : MonoBehaviour
+public class AdManager : MonoBehaviour
 {
 
 
-    private static AdMobManager instance = null;
+    private static AdManager instance = null;
 
     public void Awake()
     {
@@ -23,9 +23,16 @@ public class AdMobManager : MonoBehaviour
 
     public void Start()
     {
-        HeyzapAds.Start("e522389493816fef4d0603100a27698b", HeyzapAds.FLAG_NO_OPTIONS);
+        if(GameProperties.StatusAD)
+        {
+            HeyzapAds.Start("e522389493816fef4d0603100a27698b", HeyzapAds.FLAG_NO_OPTIONS);
+            Listener();
+        }
+        
+    }
 
-
+    private void Listener()
+    {
         /// Reward
         HZIncentivizedAd.AdDisplayListener listener = delegate (string adState, string adTag) {
             if (adState.Equals("incentivized_result_complete"))
@@ -101,6 +108,7 @@ public class AdMobManager : MonoBehaviour
             }
             if (adState.Equals("available"))
             {
+
                 Debug.Log("Inst Yüklü!");
                 // Sent when an ad has been loaded and is ready to be displayed,
                 //   either because we autofetched an ad or because you called
@@ -138,14 +146,15 @@ public class AdMobManager : MonoBehaviour
         };
 
         HZInterstitialAd.SetDisplayListener(listenerInst);
-
-        ShowBanner();
-
     }
 
 
+    public void AdSDKTest()
+    {
+        HeyzapAds.ShowMediationTestSuite();
+    }
 
-    public static AdMobManager Instance
+    public static AdManager Instance
     {
         get { return instance; }
     }
@@ -158,9 +167,13 @@ public class AdMobManager : MonoBehaviour
         }
     }
 
+    public bool InterstitialIsAvailable()
+    {
+        return HZIncentivizedAd.IsAvailable();
+    }
     public void ShowInterstitial()
     {
-        if(HZInterstitialAd.IsAvailable())
+        if(GameProperties.StatusAD) //&& HZInterstitialAd.IsAvailable())
         {
             HZInterstitialAd.Show();
         }
@@ -176,15 +189,16 @@ public class AdMobManager : MonoBehaviour
 
     public void ShowBanner()
     {
-        HZBannerShowOptions showOptions = new HZBannerShowOptions();
-        showOptions.Position = HZBannerShowOptions.POSITION_BOTTOM;
-        showOptions.SelectedAdMobSize = HZBannerShowOptions.AdMobSize.SMART_BANNER; // optional, android only
-        showOptions.SelectedFacebookSize = HZBannerShowOptions.FacebookSize.SMART_BANNER; // optional, android only
-        showOptions.SelectedInmobiSize = HZBannerShowOptions.InmobiSize.BANNER_320_50;
-        
-        HZBannerAd.ShowWithOptions(showOptions);
-        // Load the banner with the request.
-        //bannerView.LoadAd(newAdRequest());
+        if (GameProperties.StatusAD)
+        {
+            HZBannerShowOptions showOptions = new HZBannerShowOptions();
+            showOptions.Position = HZBannerShowOptions.POSITION_BOTTOM;
+            showOptions.SelectedAdMobSize = HZBannerShowOptions.AdMobSize.SMART_BANNER; // optional, android only
+            showOptions.SelectedFacebookSize = HZBannerShowOptions.FacebookSize.SMART_BANNER; // optional, android only
+            showOptions.SelectedInmobiSize = HZBannerShowOptions.InmobiSize.BANNER_320_50;
+
+            HZBannerAd.ShowWithOptions(showOptions);
+        }
     }
 
     public void HideBanner()
@@ -194,7 +208,7 @@ public class AdMobManager : MonoBehaviour
  
     public void RequestInterstitial()
     {   
-        if(!HZInterstitialAd.IsAvailable())
+        if(GameProperties.StatusAD && !HZInterstitialAd.IsAvailable())
         {
             HZInterstitialAd.Fetch();
         }

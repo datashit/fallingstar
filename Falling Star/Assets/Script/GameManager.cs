@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Script;
 
 public class GameManager : MonoBehaviour {
 
@@ -7,12 +8,15 @@ public class GameManager : MonoBehaviour {
     public GameObject EnemySpawner;
 
     public UImanager uiManager;
+
 	// Use this for initialization
 	void Start () {
 
         PlayGame = false;
+        
 	}
 	
+    
 	// Update is called once per frame
 	void Update () {
 
@@ -20,6 +24,17 @@ public class GameManager : MonoBehaviour {
 
     public void Reload_Game()
     {
+        if((GameProperties.GamePlayCount % GameProperties.InterstitialGameSize) == 0)
+        {
+            //AdManager.Instance.RequestInterstitial();
+            AdManager.Instance.ShowInterstitial();
+        }
+        if((GameProperties.GamePlayCount % GameProperties.RewardGameSize) == 0)
+        {
+            AdManager.Instance.RequestRewardAd();
+            AdManager.Instance.ShowRewardBasedVideoAd();
+        }
+
         uiManager.Load_MainMenu();
         PlayGame = false;
         
