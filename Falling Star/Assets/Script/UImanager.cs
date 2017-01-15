@@ -61,16 +61,27 @@ public class UImanager : MonoBehaviour
         
     }
 
+    private void Play_Time()
+    {
+        gameManager.PlayGame = true;
+        AdManager.Instance.ShowBanner();
+        GameProperties.IncGamePlayCount();
+    }
+
     public void Click_Play_Button()
     {
         ChangeUI(PlayMenuPanel);
         activePage = PageEnum.PlayGame;
         //MainMenuPanel.SetActive(false);
         //PlayMenuPanel.SetActive(true);
-        gameManager.PlayGame = true;
-        AdManager.Instance.ShowBanner();
-        GameProperties.IncGamePlayCount();
-        
+        Play_Time();
+    }
+
+    public void Click_Replay_Button()
+    {
+        ChangeUI(PlayMenuPanel);
+        activePage = PageEnum.PlayGame;
+        Play_Time();
     }
     public void Click_Pause_Button()
     {
@@ -89,17 +100,29 @@ public class UImanager : MonoBehaviour
     {
         Load_MainMenu();
         gameManager.Reload_Game();
+    }
 
+    private void Exit_PlayMode()
+    {
+        gameManager.PlayGame = false;
+        AdManager.Instance.HideBanner();
     }
 
     public void Load_MainMenu()
     {
         ChangeUI(MainMenuPanel);
-        gameManager.PlayGame = false;
-        mmAnimationScript.Back_MM_Animation();
         activePage = PageEnum.MainMenu;
-        AdManager.Instance.HideBanner();
-        
+        Exit_PlayMode();
+        mmAnimationScript.Back_MM_Animation();    
+    }
+
+    public void Load_LostMenu(int score, bool earn)
+    {
+        ChangeUI(LostMenuPanel);
+        activePage = PageEnum.LostGame;
+        Exit_PlayMode();
+        GameObject.Find("Text_SCORE_NUMBER").GetComponent<Text>().text = score.ToString();
+        GameObject.Find("LostMenuPanel").GetComponent<LostPanelScript>().EarnButtonVisible(earn);
     }
 
 

@@ -7,6 +7,7 @@ public class PlayerControl : BaseBehaviour
 
     public float speed = 3.5f;
     private float rotate = 2.5f;
+    private bool direction = false;
     private Vector3 pos;
     private GameManager gameManager;
 
@@ -29,39 +30,59 @@ public class PlayerControl : BaseBehaviour
         {
             if (!firstPosition)
             {
-                firstPosition = true;
                 pos.y = -0.5f;
             }
 
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && this.transform.position.y > -0.51f)
             {
-                rotate *= -1;
-                pos = new Vector3(rotate, pos.y);
+                direction = !direction; // True ise Sağ / False ise Sol
+                firstPosition = true;
+
                 pos.z = 0;
-                pos.x = Mathf.Clamp(pos.x, -2.35f, 2.35f);
             }
-            this.transform.position = Vector3.Lerp(this.transform.position, pos, Time.deltaTime * speed);
+            else if(this.transform.position.y < -0.51f)
+            {
+                this.transform.position = Vector3.Lerp(this.transform.position, pos, speed * Time.deltaTime);
+                return;
+            }
+
+            if (firstPosition)
+            {
+                if (direction)
+                {
+                    pos.Set(speed * Time.deltaTime, 0, 0);
+                    MovePlayer(pos);
+                }
+                else
+                {
+                    pos.Set(-speed * Time.deltaTime, 0, 0);
+                    MovePlayer(pos);
+                }
+            }
+        }
+        else
+        {
+            firstPosition = false;
         }
 
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void  MovePlayer(Vector3 pos)
     {
-        switch (collision.gameObject.tag)
-        {
-            case ("Enemy"):
-                LostGame();
-                break;
-
-        }
+        pos += this.transform.position;
+        pos.Set(Mathf.Clamp(pos.x, -2.35f, 2.35f), pos.y, pos.z);
+        this.transform.position = pos;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.tag)
         {
+            case ("Enemy"):
+                LostGame();
+                break;
             case ("Orb"):
                 OrbTrigger(collision.gameObject);
                 break;
@@ -81,8 +102,9 @@ public class PlayerControl : BaseBehaviour
     }
     private void LostGame()
     {
+        int lostOrbCount = OrbManager.Instance.getOrb;
         UpdateOrbPoint();
-        gameManager.Reload_Game();
+        gameManager.Lost_Game(lostOrbCount);
         Default();
         
     }
