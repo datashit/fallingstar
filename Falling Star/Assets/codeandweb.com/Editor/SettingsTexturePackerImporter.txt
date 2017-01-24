@@ -1,0 +1,14 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/SpriteSheet/Comet.tpsheet
+- Assets/SpriteSheet/EnemyAndOrb.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/SpriteSheet/Comet.png
+- Assets/SpriteSheet/EnemyAndOrb.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
