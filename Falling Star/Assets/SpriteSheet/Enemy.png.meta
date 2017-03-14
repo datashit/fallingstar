@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: acba81377bb9632499e230e8c619449f
+timeCreated: 1489512498
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blue-space-ship-3-type-1
+    21300002: blue-space-ship-3-type-2
+    21300004: blue-space-ship-3-type-3
+    21300006: blue-space-ship-3-type-4
+    21300008: blue
+    21300010: bright-green
+    21300012: brown
+    21300014: engine-glow
+    21300016: green-space-ship-3-type-1
+    21300018: green-space-ship-3-type-2
+    21300020: green-space-ship-3-type-3
+    21300022: green-space-ship-3-type-4
+    21300024: green
+    21300026: orange-space-ship-3-type-1
+    21300028: orange-space-ship-3-type-2
+    21300030: orange-space-ship-3-type-3
+    21300032: orange-space-ship-3-type-4
+    21300034: red
+    21300036: ship-one-four
+    21300038: ship-one-one
+    21300040: ship-one-three
+    21300042: ship-one-two
+    21300044: spaceship-2-1
+    21300046: spaceship-2-2
+    21300048: spaceship-2-3
+    21300050: spaceship-2-4
+    21300052: spaceship-2-5
+    21300054: white
+    21300056: yellow-space-ship-3-type-1
+    21300058: yellow-space-ship-3-type-2
+    21300060: yellow-space-ship-3-type-3
+    21300062: yellow-space-ship-3-type-4
+    21300064: yellow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 150
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: 13
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blue-space-ship-3-type-1
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 40
+        width: 309
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: blue-space-ship-3-type-2
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1779
+        width: 432
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: blue-space-ship-3-type-3
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 194
+        width: 301
+        height: 312
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: blue-space-ship-3-type-4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1651
+        width: 398
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: blue
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1396
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bright-green
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1321
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: brown
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 1648
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: engine-glow
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1186
+        width: 112
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: green-space-ship-3-type-1
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 936
+        width: 315
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: green-space-ship-3-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 237
+        width: 431
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: green-space-ship-3-type-3
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 858
+        width: 296
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: green-space-ship-3-type-4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 517
+        width: 398
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: green
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 758
+        width: 110
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orange-space-ship-3-type-1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1755
+        width: 291
+        height: 292
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orange-space-ship-3-type-2
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1593
+        width: 431
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orange-space-ship-3-type-3
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 340
+        width: 301
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orange-space-ship-3-type-4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1273
+        width: 398
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: red
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1751
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ship-one-four
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 298
+        width: 209
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ship-one-one
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 1810
+        width: 216
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ship-one-three
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 68
+        width: 248
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ship-one-two
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 1852
+        width: 272
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: spaceship-2-1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1171
+        width: 343
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: spaceship-2-2
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 1752
+        width: 291
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: spaceship-2-3
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1441
+        width: 97
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: spaceship-2-4
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 82
+        width: 187
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: spaceship-2-5
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1324
+        width: 357
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: white
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1676
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: yellow-space-ship-3-type-1
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 494
+        width: 310
+        height: 302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: yellow-space-ship-3-type-2
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1404
+        width: 431
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: yellow-space-ship-3-type-3
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 641
+        width: 301
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: yellow-space-ship-3-type-4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 895
+        width: 398
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: yellow
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1946
+        width: 110
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

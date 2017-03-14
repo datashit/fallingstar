@@ -22,6 +22,25 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+
+    private void Clear_Scene()
+    {
+        PlayGame = false;
+
+        GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
+        GameObject.Find("Player").GetComponent<PlayerControl>().Default();
+        GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] OrbList = GameObject.FindGameObjectsWithTag("Orb");
+        foreach (var orb in OrbList)
+        {
+            orb.SetActive(false);
+        }
+        foreach (var enemy in EnemyList)
+        {
+            enemy.SetActive(false);
+        }
+        Time.timeScale = 1;
+    }
     public void Lost_Game(int score)
     {
         if ((GameProperties.GamePlayCount % GameProperties.InterstitialGameSize) == 0)
@@ -37,21 +56,7 @@ public class GameManager : MonoBehaviour {
         }
 
         uiManager.Load_LostMenu(score, earnActive);
-        PlayGame = false;
-
-        GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
-        GameObject.Find("Player").GetComponent<PlayerControl>().Default();
-        GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] OrbList = GameObject.FindGameObjectsWithTag("Orb");
-        foreach (var orb in OrbList)
-        {
-            Destroy(orb);
-        }
-        foreach (var enemy in EnemyList)
-        {
-            Destroy(enemy);
-        }
-        Time.timeScale = 1;
+        Clear_Scene();
 
     }
 
@@ -60,20 +65,6 @@ public class GameManager : MonoBehaviour {
         
 
         uiManager.Load_MainMenu();
-        PlayGame = false;
-        
-        GameObject.FindWithTag("Player").transform.position = new Vector3(0, -2.5f, 0);
-        GameObject.Find("Player").GetComponent<PlayerControl>().Default();
-        GameObject[] EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] OrbList = GameObject.FindGameObjectsWithTag("Orb");
-        foreach(var orb in OrbList)
-        {
-            Destroy(orb);
-        }
-        foreach (var enemy in EnemyList)
-        {
-            Destroy(enemy);
-        }
-        Time.timeScale = 1;
+        Clear_Scene();
     }
 }

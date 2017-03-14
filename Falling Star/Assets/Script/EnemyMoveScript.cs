@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMoveScript : MonoBehaviour {
+public class EnemyMoveScript : BaseBehaviour{
     
     public float Speed = -5f;
-    public float Ydestroy = -7f;
+    public float Ydestroy = -2f;
     private Vector3 movePosition;
-	// Update is called once per frame
-	void Update () {
+
+    public void Awake()
+    {
+        Speed = PlayerControl.Instance.VerticalSpeed;
+        Observer.AddListener(PlayerControl.PlayerInfo.VERTICAL_SPEED_CHANGE , this, SpeedChange);
+    }
+
+    
+
+    private void SpeedChange(ObservParam obj)
+    {
+        Speed = (float)obj.data;
+    }
+
+    // Update is called once per frame
+    void Update () {
         movePosition.Set(0,  Speed * Time.deltaTime, 0);
         this.transform.position += movePosition; 
 	}
 
-    private void LateUpdate()
+
+    private void OnBecameInvisible()
     {
-        if(this.transform.position.y <= Ydestroy)
-        {
-            Destroy(gameObject);
-        }
+
+        gameObject.SetActive(false);
     }
 
 }

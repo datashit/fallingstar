@@ -5,16 +5,56 @@ using UnityEngine.UI;
 public class PlayerControl : BaseBehaviour
 {
 
-    public float speed = 3.5f;
+    public float VerticalSpeed = -5f;
+    public float HorizantalSpeed = 3.5f;
     private float rotate = 2.5f;
     private bool direction = false;
+    private bool DestroyEff = false;
     private Vector3 pos;
     private GameManager gameManager;
+    public GameObject Skin;
+    public GameObject DestroyEffect;
+
+    
 
 
     private bool firstPosition = false;
 
+    public enum PlayerInfo
+    {
+        VERTICAL_SPEED_CHANGE
+    }
 
+    public void Set_Vertical_Speed(float speed)
+    {
+        this.VerticalSpeed = speed;
+        Observer.SendMessage(PlayerInfo.VERTICAL_SPEED_CHANGE, speed);
+    }
+
+    private static PlayerControl instance = null;
+
+    public void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        instance = this;
+
+
+        DontDestroyOnLoad(instance);
+    }
+
+
+
+    public static PlayerControl Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
     // Use this for initialization
     void Start()
     {
@@ -26,8 +66,15 @@ public class PlayerControl : BaseBehaviour
     void Update()
     {
 
+        
         if (gameManager.PlayGame)
         {
+            if(DestroyEff)
+            {
+                DestroyEff = false;
+                Hide();
+                Instantiate(DestroyEffect, this.transform);    
+            }
             if (!firstPosition)
             {
                 pos.y = -0.5f;
@@ -43,7 +90,7 @@ public class PlayerControl : BaseBehaviour
             }
             else if(this.transform.position.y < -0.51f)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, pos, speed * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(this.transform.position, pos, HorizantalSpeed * Time.deltaTime);
                 return;
             }
 
@@ -51,12 +98,12 @@ public class PlayerControl : BaseBehaviour
             {
                 if (direction)
                 {
-                    pos.Set(speed * Time.deltaTime, 0, 0);
+                    pos.Set(HorizantalSpeed * Time.deltaTime, 0, 0);
                     MovePlayer(pos);
                 }
                 else
                 {
-                    pos.Set(-speed * Time.deltaTime, 0, 0);
+                    pos.Set(-HorizantalSpeed * Time.deltaTime, 0, 0);
                     MovePlayer(pos);
                 }
             }
@@ -65,6 +112,8 @@ public class PlayerControl : BaseBehaviour
         {
             firstPosition = false;
         }
+
+        
 
 
     }
@@ -81,7 +130,8 @@ public class PlayerControl : BaseBehaviour
         switch (collision.gameObject.tag)
         {
             case ("Enemy"):
-                LostGame();
+                DestroyEff = true;
+                Invoke("LostGame",4);
                 break;
             case ("Orb"):
                 OrbTrigger(collision.gameObject);
@@ -89,9 +139,25 @@ public class PlayerControl : BaseBehaviour
         }
     }
 
+    void Visible(bool val)
+    {
+        gameObject.GetComponent<CircleCollider2D>().enabled = val;
+        Skin.active = val;
+    }
+
+    void Hide()
+    {
+        Visible(false);
+
+    }
+
+    void Show()
+    {
+        Visible(true);
+    }
     private void OrbTrigger(GameObject obj)
     {
-        Destroy(obj);
+        obj.SetActive(false);
         OrbManager.Instance.AddOrb(1);
     }
 
@@ -106,6 +172,7 @@ public class PlayerControl : BaseBehaviour
         UpdateOrbPoint();
         gameManager.Lost_Game(lostOrbCount);
         Default();
+        Show();
         
     }
 
