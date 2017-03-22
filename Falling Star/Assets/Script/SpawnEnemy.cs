@@ -79,13 +79,17 @@ public class SpawnEnemy : MonoBehaviour {
     {
         int enemyLen = 1;
         
-        if (OrbManager.Instance.getOrb <= 50)
+        if (OrbManager.Instance.getOrb <= 25)
         {
             enemyLen = 1;
         }
-        else if(OrbManager.Instance.getOrb <= 80)
+        else if(OrbManager.Instance.getOrb <= 50)
         {
-            enemyLen = 2;
+            enemyLen = enemy.Length;
+        }
+        else
+        {
+            enemyLen = enemy.Length;
         }
         spawnShip = Random.Range(0, enemyLen);
     }
@@ -122,11 +126,11 @@ public class SpawnEnemy : MonoBehaviour {
                     {
                         case 10:
                             SpawnStartTime = 0f;
-                            SpawnTime = 0.6f;
+                            SpawnTime = 0.5f;
                             break;
                         case 50:
                             SpawnStartTime = 0f;
-                            SpawnTime = 0.5f;
+                            SpawnTime = 0.4f;
                             break;
                     }
 
@@ -149,7 +153,7 @@ public class SpawnEnemy : MonoBehaviour {
                 }
                 else if (OrbManager.Instance.getOrb >= 50)
                 {
-                    PlayerControl.Instance.Set_Vertical_Speed(-4.5f);
+                    PlayerControl.Instance.Set_Vertical_Speed(-5f);
                     waveRandom();
                 }
             }
