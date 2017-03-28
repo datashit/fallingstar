@@ -118,6 +118,13 @@ public class OrbManager : BaseBehaviour
         PlayerPrefs.SetInt(sTotalOrb, value);
         Observer.SendMessage(OrbManagerInfo.TOTAL_ORB_CHANGE, value);
     }
+    /// <summary>
+    /// Önceki orb sayısını temizler.
+    /// </summary>
+    public void Orb_Clear()
+    {
+        ChangeOrb(0);
+    }
 
     /// <summary>
     /// Toplam Orb Harcamak için kullanılan metod

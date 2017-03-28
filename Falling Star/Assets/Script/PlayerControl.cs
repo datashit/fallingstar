@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class PlayerControl : BaseBehaviour
 {
 
@@ -28,6 +28,7 @@ public class PlayerControl : BaseBehaviour
     public void Set_Vertical_Speed(float speed)
     {
         this.VerticalSpeed = speed;
+        this.HorizantalSpeed = (this.VerticalSpeed * -1)/ 1.6f; // 1.7
         Observer.SendMessage(PlayerInfo.VERTICAL_SPEED_CHANGE, speed);
     }
 
@@ -80,9 +81,13 @@ public class PlayerControl : BaseBehaviour
                 pos.y = -0.5f;
             }
 
-
+          
             if (Input.GetKeyDown(KeyCode.Mouse0) && this.transform.position.y > -0.51f)
             {
+                if(EventSystem.current.IsPointerOverGameObject())
+                {
+                    return;
+                }
                 direction = !direction; // True ise Sağ / False ise Sol
                 firstPosition = true;
 

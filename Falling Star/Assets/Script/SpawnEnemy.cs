@@ -30,10 +30,7 @@ public class SpawnEnemy : MonoBehaviour {
         }
         enemyPool = new GameObjectPool(enemy[0], this.transform, PoolSize);
 
-        HowWave = -1;
         gameManager = GameObject.Find("Main Camera").GetComponent<GameManager>();
-        StartCoroutine(Spawner());
-        
     }
 
     private GameObject getEnemy(Vector3 pos, Quaternion qua)
@@ -44,21 +41,17 @@ public class SpawnEnemy : MonoBehaviour {
     private GameObject getOrb(Vector3 pos, Quaternion qua)
     {
         return orbPool.GetObject(pos, qua);
-        //for(int i=0; i < orbPool.Count; i++)
-        //{
-        //    if(!orbPool[i].activeInHierarchy)
-        //    {
-        //        orbPool[i].transform.position = pos;
-        //        orbPool[i].transform.rotation = qua;
-        //        orbPool[i].SetActive(true);
-        //        return orbPool[i];
-        //    }
-        //}
-        //return null;
     }
-    private void SpawnerBegin()
+
+    public void SpawnerStop()
     {
-        InvokeRepeating("Spawner", SpawnStartTime, SpawnTime);
+        StopCoroutine(Spawner());
+    }
+
+    public void SpawnerBegin()
+    {
+        SpawnerStop();
+        StartCoroutine(Spawner());
     }
 	
     private Vector3 spawnPoint;
@@ -68,30 +61,11 @@ public class SpawnEnemy : MonoBehaviour {
         spawnPoint.Set(Random.Range(-2.5f, 2.5f), this.transform.position.y, 0);
     }
 
-    private void wave0()
-    {
-        RandomPostion();
-        getOrb(spawnPoint, Quaternion.identity);
-    }
 
 
     private void enemyLevel()
     {
-        int enemyLen = 1;
-        
-        if (OrbManager.Instance.getOrb <= 25)
-        {
-            enemyLen = 1;
-        }
-        else if(OrbManager.Instance.getOrb <= 50)
-        {
-            enemyLen = enemy.Length;
-        }
-        else
-        {
-            enemyLen = enemy.Length;
-        }
-        spawnShip = Random.Range(0, enemyLen);
+        spawnShip = Random.Range(0, HowWave);
     }
 
     private void waveRandom()
@@ -120,46 +94,19 @@ public class SpawnEnemy : MonoBehaviour {
             yield return new WaitForSeconds(SpawnTime);
             if (gameManager.PlayGame)
             {
-                if (OrbManager.Instance.getOrb == HowWave)
-                {
-                    switch (HowWave)
-                    {
-                        case 10:
-                            SpawnStartTime = 0f;
-                            SpawnTime = 0.5f;
-                            break;
-                        case 50:
-                            SpawnStartTime = 0f;
-                            SpawnTime = 0.4f;
-                            break;
-                    }
 
-                    HowWave = -1;
-                    //CancelInvoke("Spawner");
-                    //SpawnerBegin();
-                    continue;
-                }
-                if (OrbManager.Instance.getOrb <= 10)
-                {
-                    HowWave = 10;
-                    PlayerControl.Instance.Set_Vertical_Speed(-3.5f);
-                    wave0();
-                }
-                else if (OrbManager.Instance.getOrb <= 50)
-                {
-                    HowWave = 50;
-                    PlayerControl.Instance.Set_Vertical_Speed(-4f);
-                    waveRandom();
-                }
-                else if (OrbManager.Instance.getOrb >= 50)
-                {
-                    PlayerControl.Instance.Set_Vertical_Speed(-5f);
-                    waveRandom();
-                }
+                SpawnTime = 0.5f;
+                int wave = OrbManager.Instance.getOrb / 10;
+                wave = Mathf.Clamp(wave, 1, enemy.Length);
+                HowWave = wave;
+                PlayerControl.Instance.Set_Vertical_Speed(-(((float)wave) / 5) + -3.5f);
+                SpawnTime = (((float)wave) / (2 * enemy.Length))  + SpawnTime;
+                waveRandom();
             }
             else
             {
-                HowWave = -1;
+                StopCoroutine(Spawner());
+                break;
             }
         }
         

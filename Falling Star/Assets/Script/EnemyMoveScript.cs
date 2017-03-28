@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMoveScript : BaseBehaviour{
     
     public float Speed = -5f;
-    public float Ydestroy = -2f;
     private Vector3 movePosition;
 
     public void Awake()
@@ -13,8 +12,6 @@ public class EnemyMoveScript : BaseBehaviour{
         Speed = PlayerControl.Instance.VerticalSpeed;
         Observer.AddListener(PlayerControl.PlayerInfo.VERTICAL_SPEED_CHANGE , this, SpeedChange);
     }
-
-    
 
     private void SpeedChange(ObservParam obj)
     {
@@ -30,7 +27,6 @@ public class EnemyMoveScript : BaseBehaviour{
 
     private void OnBecameInvisible()
     {
-
         gameObject.SetActive(false);
     }
 

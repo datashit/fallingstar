@@ -5,7 +5,7 @@ using Assets.Script;
 public class GameManager : MonoBehaviour {
 
     public bool PlayGame = false;
-    public GameObject EnemySpawner;
+    public SpawnEnemy EnemySpawner;
 
     public UImanager uiManager;
 
@@ -62,9 +62,13 @@ public class GameManager : MonoBehaviour {
 
     public void Reload_Game()
     {
-        
-
         uiManager.Load_MainMenu();
         Clear_Scene();
+    }
+
+    public void Play()
+    {
+        OrbManager.Instance.Orb_Clear();
+        EnemySpawner.SpawnerBegin();
     }
 }

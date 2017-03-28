@@ -37,6 +37,22 @@ TextureImporter:
     21300060: yellow-space-ship-3-type-3
     21300062: yellow-space-ship-3-type-4
     21300064: yellow
+    21300066: orb-1
+    21300068: orb-2
+    21300070: orb-3
+    21300072: orb-4
+    21300074: orb-5
+    21300076: orb-6
+    21300078: orb-7
+    21300080: orb-8
+    21300082: orb-9
+    21300084: orb-10
+    21300086: orb-11
+    21300088: orb-12
+    21300090: orb-13
+    21300092: orb-14
+    21300094: orb-15
+    21300096: orb-16
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -114,8 +130,8 @@ TextureImporter:
       name: blue-space-ship-3-type-1
       rect:
         serializedVersion: 2
-        x: 675
-        y: 40
+        x: 401
+        y: 772
         width: 309
         height: 300
       alignment: 0
@@ -154,7 +170,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1651
+        y: 1272
         width: 398
         height: 396
       alignment: 0
@@ -166,8 +182,8 @@ TextureImporter:
       name: blue
       rect:
         serializedVersion: 2
-        x: 344
-        y: 1396
+        x: 776
+        y: 1409
         width: 109
         height: 101
       alignment: 0
@@ -179,8 +195,8 @@ TextureImporter:
       name: bright-green
       rect:
         serializedVersion: 2
-        x: 421
-        y: 1321
+        x: 428
+        y: 1324
         width: 109
         height: 101
       alignment: 0
@@ -192,23 +208,10 @@ TextureImporter:
       name: brown
       rect:
         serializedVersion: 2
-        x: 1016
-        y: 1648
+        x: 424
+        y: 1148
         width: 109
         height: 101
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: engine-glow
-      rect:
-        serializedVersion: 2
-        x: 780
-        y: 1186
-        width: 112
-        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,8 +221,8 @@ TextureImporter:
       name: green-space-ship-3-type-1
       rect:
         serializedVersion: 2
-        x: 678
-        y: 936
+        x: 888
+        y: 1763
         width: 315
         height: 284
       alignment: 0
@@ -244,8 +247,8 @@ TextureImporter:
       name: green-space-ship-3-type-3
       rect:
         serializedVersion: 2
-        x: 380
-        y: 858
+        x: 660
+        y: 941
         width: 296
         height: 309
       alignment: 0
@@ -258,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 517
+        y: 895
         width: 398
         height: 396
       alignment: 0
@@ -270,8 +273,8 @@ TextureImporter:
       name: green
       rect:
         serializedVersion: 2
-        x: 348
-        y: 758
+        x: 776
+        y: 1866
         width: 110
         height: 101
       alignment: 0
@@ -283,7 +286,7 @@ TextureImporter:
       name: orange-space-ship-3-type-1
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1503
         y: 1755
         width: 291
         height: 292
@@ -296,8 +299,8 @@ TextureImporter:
       name: orange-space-ship-3-type-2
       rect:
         serializedVersion: 2
-        x: 583
-        y: 1593
+        x: 341
+        y: 1406
         width: 431
         height: 268
       alignment: 0
@@ -309,8 +312,8 @@ TextureImporter:
       name: orange-space-ship-3-type-3
       rect:
         serializedVersion: 2
-        x: 691
-        y: 340
+        x: 674
+        y: 17
         width: 301
         height: 311
       alignment: 0
@@ -323,7 +326,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1273
+        y: 1651
         width: 398
         height: 396
       alignment: 0
@@ -332,11 +335,219 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: orb-1
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 222
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-2
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1681
+        width: 102
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-3
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1230
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-4
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1405
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 228
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1361
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-7
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 770
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-8
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1652
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-9
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 552
+        width: 103
+        height: 105
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.4904762}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-10
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 117
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47087377, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-11
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1289
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47087377, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-12
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 13
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47087377, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-13
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1397
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-14
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 351
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-15
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1731
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: orb-16
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 447
+        width: 103
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47572815, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: red
       rect:
         serializedVersion: 2
-        x: 319
-        y: 1751
+        x: 546
+        y: 1070
         width: 109
         height: 101
       alignment: 0
@@ -348,8 +559,8 @@ TextureImporter:
       name: ship-one-four
       rect:
         serializedVersion: 2
-        x: 945
-        y: 298
+        x: 917
+        y: 929
         width: 209
         height: 293
       alignment: 0
@@ -361,7 +572,7 @@ TextureImporter:
       name: ship-one-one
       rect:
         serializedVersion: 2
-        x: 1711
+        x: 1775
         y: 1810
         width: 216
         height: 237
@@ -387,8 +598,8 @@ TextureImporter:
       name: ship-one-two
       rect:
         serializedVersion: 2
-        x: 1493
-        y: 1852
+        x: 448
+        y: 8
         width: 272
         height: 195
       alignment: 0
@@ -400,8 +611,8 @@ TextureImporter:
       name: spaceship-2-1
       rect:
         serializedVersion: 2
-        x: 425
-        y: 1171
+        x: 428
+        y: 1172
         width: 343
         height: 277
       alignment: 0
@@ -413,7 +624,7 @@ TextureImporter:
       name: spaceship-2-2
       rect:
         serializedVersion: 2
-        x: 907
+        x: 1210
         y: 1752
         width: 291
         height: 295
@@ -426,8 +637,8 @@ TextureImporter:
       name: spaceship-2-3
       rect:
         serializedVersion: 2
-        x: 897
-        y: 1441
+        x: 335
+        y: 985
         width: 97
         height: 232
       alignment: 0
@@ -439,8 +650,8 @@ TextureImporter:
       name: spaceship-2-4
       rect:
         serializedVersion: 2
-        x: 317
-        y: 82
+        x: 1043
+        y: 1552
         width: 187
         height: 251
       alignment: 0
@@ -452,8 +663,8 @@ TextureImporter:
       name: spaceship-2-5
       rect:
         serializedVersion: 2
-        x: 636
-        y: 1324
+        x: 774
+        y: 1453
         width: 357
         height: 233
       alignment: 0
@@ -465,8 +676,8 @@ TextureImporter:
       name: white
       rect:
         serializedVersion: 2
-        x: 469
-        y: 1676
+        x: 326
+        y: 231
         width: 109
         height: 101
       alignment: 0
@@ -478,8 +689,8 @@ TextureImporter:
       name: yellow-space-ship-3-type-1
       rect:
         serializedVersion: 2
-        x: 364
-        y: 494
+        x: 381
+        y: 495
         width: 310
         height: 302
       alignment: 0
@@ -491,8 +702,8 @@ TextureImporter:
       name: yellow-space-ship-3-type-2
       rect:
         serializedVersion: 2
-        x: 338
-        y: 1404
+        x: 583
+        y: 1593
         width: 431
         height: 268
       alignment: 0
@@ -504,8 +715,8 @@ TextureImporter:
       name: yellow-space-ship-3-type-3
       rect:
         serializedVersion: 2
-        x: 634
-        y: 641
+        x: 677
+        y: 374
         width: 301
         height: 311
       alignment: 0
@@ -518,7 +729,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 895
+        y: 517
         width: 398
         height: 396
       alignment: 0
@@ -530,8 +741,8 @@ TextureImporter:
       name: yellow
       rect:
         serializedVersion: 2
-        x: 830
-        y: 1946
+        x: 317
+        y: 1752
         width: 110
         height: 101
       alignment: 0

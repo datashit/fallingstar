@@ -9,6 +9,7 @@ public class UImanager : MonoBehaviour
     public GameObject PlayMenuPanel;
     public GameObject LostMenuPanel;
     public GameObject OrbStorePanel;
+    public GameObject PauseMenuPanel;
 
     public MMAnimationScript mmAnimationScript;
 
@@ -66,14 +67,13 @@ public class UImanager : MonoBehaviour
         gameManager.PlayGame = true;
         AdManager.Instance.ShowBanner();
         GameProperties.IncGamePlayCount();
+        gameManager.Play();
     }
 
     public void Click_Play_Button()
     {
         ChangeUI(PlayMenuPanel);
         activePage = PageEnum.PlayGame;
-        //MainMenuPanel.SetActive(false);
-        //PlayMenuPanel.SetActive(true);
         Play_Time();
     }
 
@@ -85,14 +85,27 @@ public class UImanager : MonoBehaviour
     }
     public void Click_Pause_Button()
     {
-        if (gameManager.PlayGame)
+        if (Time.timeScale != 0)
         {
-            gameManager.PlayGame = false;
-            ChangeUI(LostMenuPanel);
+            //gameManager.PlayGame = false;
+            ChangeUI(PauseMenuPanel);
             //PlayMenuPanel.SetActive(false);
             //LostMenuPanel.SetActive(true);
             Time.timeScale = 0;
             activePage = PageEnum.PauseGame;
+        }
+    }
+
+    public void Click_Pause_Play_Button()
+    {
+        if (Time.timeScale == 0)
+        {
+            //gameManager.PlayGame = true;
+            ChangeUI(PlayMenuPanel);
+            //PlayMenuPanel.SetActive(false);
+            //LostMenuPanel.SetActive(true);
+            Time.timeScale = 1;
+            activePage = PageEnum.PlayGame ;
         }
     }
 
